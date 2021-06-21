@@ -1,6 +1,6 @@
 {
-  "name": "@turf/bbox",
-  "version": "6.4.0",
+  "name": "@bmap-turf/bbox",
+  "version": "6.4.2",
   "description": "turf bbox module",
   "author": "Turf Authors",
   "license": "MIT",

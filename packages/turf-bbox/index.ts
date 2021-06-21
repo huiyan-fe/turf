@@ -16,19 +16,26 @@ import { coordEach } from "@turf/meta";
  * var addToMap = [line, bboxPolygon]
  */
 function bbox(geojson: any): BBox {
-  const result: BBox = [Infinity, Infinity, -Infinity, -Infinity];
+  const result: BBox = [Infinity, Infinity, Infinity, -Infinity, -Infinity, -Infinity];
   coordEach(geojson, (coord) => {
+    coord[2] = coord[2] || 0;
     if (result[0] > coord[0]) {
       result[0] = coord[0];
     }
     if (result[1] > coord[1]) {
       result[1] = coord[1];
     }
-    if (result[2] < coord[0]) {
-      result[2] = coord[0];
+    if (result[2] > coord[2]) {
+      result[2] = coord[2];
     }
-    if (result[3] < coord[1]) {
-      result[3] = coord[1];
+    if (result[3] < coord[0]) {
+      result[3] = coord[0];
+    }
+    if (result[4] < coord[1]) {
+      result[4] = coord[1];
+    }
+    if (result[5] < coord[2]) {
+      result[5] = coord[2];
     }
   });
   return result;

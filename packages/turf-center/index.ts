@@ -1,4 +1,4 @@
-import bbox from "@turf/bbox";
+import bbox from "@bmap-turf/bbox";
 import {
   point,
   BBox,
@@ -38,9 +38,10 @@ function center<P = Properties>(
   options: { properties?: P; bbox?: BBox; id?: Id } = {}
 ): Feature<Point, P> {
   const ext = bbox(geojson);
-  const x = (ext[0] + ext[2]) / 2;
-  const y = (ext[1] + ext[3]) / 2;
-  return point([x, y], options.properties, options);
+  const x = (ext[0] + ext[3]) / 2;
+  const y = (ext[1] + ext[4]) / 2;
+  const z = (ext[2] + ext[5]) / 2;
+  return point([x, y, z], options.properties, options);
 }
 
 export default center;
