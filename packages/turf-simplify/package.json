@@ -1,5 +1,5 @@
 {
-  "name": "@turf/simplify",
+  "name": "@bmap-turf/simplify",
   "version": "6.3.0",
   "description": "turf simplify module",
   "author": "Turf Authors",
