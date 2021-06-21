@@ -144,7 +144,7 @@ function simplifyLine(coordinates, tolerance, highQuality) {
 function simplifyPolygon(coordinates, tolerance, highQuality) {
   return coordinates.map(function (ring) {
     var pts = ring.map(function (coord) {
-      return { x: coord[0], y: coord[1] };
+      return { x: coord[0], y: coord[1], z: coord[2] };
     });
     if (pts.length < 4) {
       throw new Error("invalid polygon");
@@ -152,7 +152,9 @@ function simplifyPolygon(coordinates, tolerance, highQuality) {
     var simpleRing = simplifyJS(pts, tolerance, highQuality).map(function (
       coords
     ) {
-      return [coords.x, coords.y];
+      return coords.z !== undefined
+        ? [coords.x, coords.y, coords.z]
+        : [coords.x, coords.y];
     });
     //remove 1 percent of tolerance until enough points to make a triangle
     while (!checkValidity(simpleRing)) {
@@ -160,7 +162,9 @@ function simplifyPolygon(coordinates, tolerance, highQuality) {
       simpleRing = simplifyJS(pts, tolerance, highQuality).map(function (
         coords
       ) {
-        return [coords.x, coords.y];
+        return coords.z !== undefined
+          ? [coords.x, coords.y, coords.z]
+          : [coords.x, coords.y];
       });
     }
     if (
