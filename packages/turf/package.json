@@ -1,6 +1,6 @@
 {
   "name": "@bmap-turf/turf",
-  "version": "6.4.2",
+  "version": "6.4.4",
   "description": "a JavaScript library for performing geospatial operations with GeoJSON",
   "author": "Turf Authors",
   "license": "MIT",
@@ -167,7 +167,7 @@
     "@turf/sample": "^6.4.0",
     "@turf/sector": "^6.4.0",
     "@turf/shortest-path": "^6.4.0",
-    "@bmap-turf/simplify": "^6.3.0",
+    "@bmap-turf/simplify": "^6.3.2",
     "@turf/square": "^6.4.0",
     "@turf/square-grid": "^6.4.0",
     "@turf/standard-deviational-ellipse": "^6.4.0",
